@@ -29,7 +29,7 @@ res <- residuals(fit_s)
 
 sd(res) #0.01336842
 
-#?????D??
+#method1 dataset
 
 f = function(t, beta2, beta1, beta0){
   return(beta2*t^2+beta1*t+beta0-1.6)
@@ -98,8 +98,9 @@ a_1 = est_mle_1$par %>% exp()
 
 c_1 = c(38.880418, 2.481892)
 
+-----------------------------------------------------------------------------------------------------------------
 #method 2
-#?~??
+#dataset
 
 lifetime = matrix(lifetime_est, ncol=1, nrow = 21) %>% as.data.frame()
 colnames(lifetime)<- c('cycles')
@@ -137,6 +138,7 @@ log_out(lifetime, b_1)
 
 c(a_1, b_1) %>% round(4)
 
+-----------------------------------------------------------------------------------------------------------------
 #method 3
 
 like <- function(dat, pars){
@@ -325,3 +327,5 @@ lines(t_seq, 0.9+(-0.28)+(par_opt_3[1]*par_opt_3[2]^t_seq)*par_opt_3[3],
 
 legend(x = 'topleft', legend = c('regression 1', 'regression 2', 'stochastic 1', 'stochastic 2', 'stochastic 3'), 
        col = c('red', 'blue','darkgreen', 'purple', 'orange' ), lty = 1)
+
+
